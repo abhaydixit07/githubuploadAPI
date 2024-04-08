@@ -1,5 +1,5 @@
 # githubuploadAPI
-# Arya Girls' Sr. Sec. School - Official Website
+
 
 This repository contains the code to directly upload your files (here I have used PDFs) to GitHub using the GitHub API.
 
@@ -26,6 +26,7 @@ This repository contains the code to directly upload your files (here I have use
 
 
 2. **Change the code with necessary collections and db**
+3. **Create a upload folder in root directory to store file temprarily while uploading**
 
 
 ### Installation
