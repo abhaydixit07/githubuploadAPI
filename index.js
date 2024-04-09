@@ -6,6 +6,7 @@ import { connectToDb, getDb } from './db.js';
 import { connect } from "mongoose";
 import authRouter from "./routes/auth.js";
 import env from 'dotenv';
+import auth from './middleware/auth.js';
 const app = express();
 
 // Set up body parser middleware
@@ -50,7 +51,7 @@ app.get('/', (req, res) => {
     res.render('authForm.ejs');
 });
 
-app.get('/uploadpdf', async (req, res) => {
+app.post('/uploadpdf', auth, async (req, res) => {
     try {
         // Retrieve all filenames from the MongoDB collection, sorted by ObjectId timestamp in descending order
         const filenames = await db.collection('filenames').find({}).sort({ _id: -1 }).toArray();
@@ -71,7 +72,7 @@ app.get('/uploadpdf', async (req, res) => {
 
 
 
-app.post('/uploadfilename', async(req, res) => {
+app.post('/uploadfilename', auth, async(req, res) => {
     // Retrieve the filename from the request body
     const { fileName } = req.body;
     console.log('Received filename:', fileName);
@@ -90,7 +91,7 @@ app.post('/uploadfilename', async(req, res) => {
     console.log(result)
     res.status(200).json({ message: 'Filename received successfully' });
 });
-app.post('/delete', async (req, res) => {
+app.post('/delete', auth, async (req, res) => {
     try {
         const fileName = req.body.fileName;
         const result = await db.collection('filenames').deleteOne({ fileName: fileName });

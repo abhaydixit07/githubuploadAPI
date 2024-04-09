@@ -76,7 +76,7 @@ authRouter.post("/tokenIsValid", async (req, res) => {
 });
 
 // Get user data (protected route)
-authRouter.get("/", auth, async (req, res) => {
+authRouter.get("/getuser", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user);
     res.json({ ...user._doc, token: req.token });
