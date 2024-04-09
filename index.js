@@ -41,11 +41,11 @@ connect(process.env.MONGO_ATLAS_URL)
 
 
 // Route for rendering the index page
+// app.get('/', (req, res) => {
+//     // Supply necessary data to the EJS template
+//     res.render('index.ejs');
+// });
 app.get('/', (req, res) => {
-    // Supply necessary data to the EJS template
-    res.render('index.ejs');
-});
-app.get('/authForm', (req, res) => {
     // Supply necessary data to the EJS template
     res.render('authForm.ejs');
 });
