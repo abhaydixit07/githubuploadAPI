@@ -97,15 +97,15 @@ app.post('/delete', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
-app.post('/deleteId', async (req, res) => {
-    try {
-        const id = req.body.id;
-        const result = await db.collection('filenames').deleteOne({ ObjectId : id });
-        console.log("Delete: ", result)
-        res.redirect('/uploadpdf')
-    } catch (error) {
-        console.error('Error deleting file:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
+// app.post('/deleteId', async (req, res) => {
+//     try {
+//         const id = req.body.id;
+//         const result = await db.collection('filenames').deleteOne({ ObjectId : id });
+//         console.log("Delete: ", result)
+//         res.redirect('/uploadpdf')
+//     } catch (error) {
+//         console.error('Error deleting file:', error);
+//         res.status(500).json({ error: 'Internal server error' });
+//     }
+// });
 
