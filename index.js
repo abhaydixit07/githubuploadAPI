@@ -45,6 +45,10 @@ app.get('/', (req, res) => {
     // Supply necessary data to the EJS template
     res.render('index.ejs');
 });
+app.get('/authForm', (req, res) => {
+    // Supply necessary data to the EJS template
+    res.render('authForm.ejs');
+});
 
 app.get('/uploadpdf', async (req, res) => {
     try {
