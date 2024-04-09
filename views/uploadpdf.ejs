@@ -192,26 +192,26 @@
                                             let objectId = data._id; // Assuming the response data contains the MongoDB ObjectId
                                             console.log('objectId:', objectId);
 
-                                            fetch(`/deleteId`, { // Replace with your API endpoint
-                                                method: 'POST',
-                                                headers: {
-                                                    'Content-Type': 'application/json',
-                                                },
-                                                body: JSON.stringify({
-                                                    id : data._id
-                                                })
-                                            })
-                                            .then(response => response.json())
-                                            .then(data => {
-                                                if (data.success) {
-                                                    console.log('Record deleted successfully');
-                                                } else {
-                                                    console.error('Failed to delete record:', data);
-                                                }
-                                            })
-                                            .catch(error => {
-                                                console.error('Error deleting record:', error);
-                                            });
+                                            // fetch(`/deleteId`, { // Replace with your API endpoint
+                                            //     method: 'POST',
+                                            //     headers: {
+                                            //         'Content-Type': 'application/json',
+                                            //     },
+                                            //     body: JSON.stringify({
+                                            //         id : data._id
+                                            //     })
+                                            // })
+                                            // .then(response => response.json())
+                                            // .then(data => {
+                                            //     if (data.success) {
+                                            //         console.log('Record deleted successfully');
+                                            //     } else {
+                                            //         console.error('Failed to delete record:', data);
+                                            //     }
+                                            // })
+                                            // .catch(error => {
+                                            //     console.error('Error deleting record:', error);
+                                            // });
                                         });
                                     }
                                 })

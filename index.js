@@ -3,12 +3,15 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import { ObjectId } from "mongodb";
 import { connectToDb, getDb } from './db.js';
+import { connect } from "mongoose";
+import authRouter from "./routes/auth.js";
 import env from 'dotenv';
 const app = express();
 
 // Set up body parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(authRouter);
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 // Serve static files from the 'public' directory
@@ -24,6 +27,15 @@ connectToDb((err)=>{
         db=getDb()
     }
 })
+
+connect(process.env.MONGO_ATLAS_URL)
+  .then(() => {
+    console.log("Connection Successful");
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
 
 
 
