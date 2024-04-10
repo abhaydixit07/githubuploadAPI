@@ -10,6 +10,7 @@ This repository contains the code to directly upload your files (here I have use
 - EJS (Embedded JavaScript templates)
 - Body-parser
 - JavaScript
+- Passport.js for Authentication
 
 ## Getting Started
 
@@ -23,6 +24,8 @@ This repository contains the code to directly upload your files (here I have use
    GITHUB_TOKEN=
    GITHUB_USERNAME=
    GITHUB_REPO=
+   USER=
+   PASSWORD=
    
    MONGO_ATLAS_URL=
 #### How to Get a GitHub Token
